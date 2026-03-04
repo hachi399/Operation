@@ -1,0 +1,9 @@
+
+{
+  "name": "ExplainIt - Visual AI Tutor",
+  "description": "A smart learning companion that explains complex topics with text and AI-generated imagery.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
