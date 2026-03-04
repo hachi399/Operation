@@ -21,9 +21,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
+        working-directory: explainit
         run: npm ci
 
       - name: Build
+        working-directory: explainit
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
         run: npm run build
@@ -31,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: explainit/dist
 
   deploy:
     needs: build
