@@ -2,8 +2,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { GeminiExplanationResponse } from "../types";
 
-// API キーを環境変数またはハードコード値から取得
-const apiKey = (import.meta.env.VITE_API_KEY as string)||  "AIzaSyBfHCdf-4JvmrFCrExU3BdU0f99xlZJxX4" || '';
+// API キーを環境変数から取得（ハードコード値は削除）
+const apiKey = (import.meta.env.VITE_API_KEY as string) || '';
 const ai = new GoogleGenAI({ apiKey });
 
 export async function getExplanation(topic: string): Promise<GeminiExplanationResponse> {
