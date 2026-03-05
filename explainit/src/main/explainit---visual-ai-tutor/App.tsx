@@ -1,6 +1,6 @@
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { ExplanationPart, ChatMessage } from './types';
+import React, { useState, useRef, useEffect } from 'react';
+import type { ExplanationPart } from './types';
 import { getExplanation, generateVisualImage } from './services/geminiService';
 import ExplanationCard from './components/ExplanationCard';
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExplanationPart } from '../types';
+import type { ExplanationPart } from '../types';
 
 interface ExplanationCardProps {
   part: ExplanationPart;

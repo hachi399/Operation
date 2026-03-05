@@ -1,8 +1,9 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { GeminiExplanationResponse } from "../types";
+import type { GeminiExplanationResponse } from "../types";
 
-const apiKey = import.meta.env.VITE_API_KEY || import.meta.env.API_KEY || '';
+// API キーを環境変数またはハードコード値から取得
+const apiKey = (import.meta.env.VITE_API_KEY as string)||  "AIzaSyBfHCdf-4JvmrFCrExU3BdU0f99xlZJxX4" || '';
 const ai = new GoogleGenAI({ apiKey });
 
 export async function getExplanation(topic: string): Promise<GeminiExplanationResponse> {
@@ -29,7 +30,8 @@ export async function getExplanation(topic: string): Promise<GeminiExplanationRe
   });
 
   try {
-    const jsonStr = response.text.trim();
+    const jsonStr = response.text?.trim() || '';
+    if (!jsonStr) throw new Error('Empty response');
     return JSON.parse(jsonStr) as GeminiExplanationResponse;
   } catch (error) {
     console.error("Failed to parse Gemini response:", error);
